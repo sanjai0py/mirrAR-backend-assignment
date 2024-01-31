@@ -22,7 +22,7 @@ sequelize
     console.log("Unable to connect to database", err);
   });
 
-(async () => await sequelize.sync({ force: true }))();
+(async () => await sequelize.sync({ alter: true }))();
 
 const Product = ProductModel(sequelize, DataTypes);
 const Variant = VariantModel(sequelize, DataTypes);

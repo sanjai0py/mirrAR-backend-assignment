@@ -12,11 +12,7 @@ Create a REST API for an e-commerce system using Laravel/Node.js. The API should
 
 
 2. Search functionality
-
-
     - An endpoint that allows searching products by product name, description, or variant name.
-
-
 
 
 3. Test Driven Development
