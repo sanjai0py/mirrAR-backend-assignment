@@ -13,18 +13,35 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   },
 });
 
-sequelize.authenticate().then(() => {
-  console.log("Connection established with database");
-}).catch((err) => {
-  console.log("Unable to connect to database", err);
-});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log("Connection established with database");
+  })
+  .catch((err) => {
+    console.log("Unable to connect to database", err);
+  });
 
-(async () => await sequelize.sync({ alter: true }))();
+(async () => await sequelize.sync({ force: true }))();
 
 const Product = ProductModel(sequelize, DataTypes);
 const Variant = VariantModel(sequelize, DataTypes);
 
-// Product.hasMany(Variant, {
-//   as: "variants",
-//   onDelete: "cascade",
-// });
+// one to many relationship between product and variant
+Product.hasMany(Variant, {
+  as: "variants",
+  foreignKey: "product_id",
+  onDelete: "CASCADE",
+});
+
+// one to one relationship between variant and product
+Variant.belongsTo(Product, {
+  foreignKey: "product_id",
+  onDelete: "CASCADE",
+});
+
+module.exports = {
+  Product,
+  Variant,
+  sequelize, //for creating transactions
+};

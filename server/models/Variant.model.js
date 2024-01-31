@@ -2,7 +2,6 @@ const Variant = (sequelize, DataTypes) => {
   return sequelize.define("Variant", {
     id: {
       type: DataTypes.UUID,
-      autoIncrement: true,
       primaryKey: true,
       defaultValue: DataTypes.UUIDV4,
     },
@@ -11,20 +10,19 @@ const Variant = (sequelize, DataTypes) => {
       allowNull: false,
       unique: true,
     },
-    // SKU:{
-    //     type: DataTypes.STRING,
-    //     allowNull: false,
-    //     unique: true,
-    //     }
-    // }
-    price: {
+    sku: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    additional_cost: {
       type: DataTypes.FLOAT,
       allowNull: false,
       validate: {
         isDecimal: true,
       },
     },
-    stockCount: {
+    stock_count: {
       type: DataTypes.INTEGER,
       allowNull: false,
       validate: {
@@ -34,6 +32,4 @@ const Variant = (sequelize, DataTypes) => {
   });
 };
 
-module.exports = {
-  Variant,
-};
+module.exports = Variant;

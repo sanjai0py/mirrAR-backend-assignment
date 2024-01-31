@@ -11,8 +11,8 @@ const Product = (sequelize, DataTypes) => {
       unique: true,
     },
     description: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.TEXT,
+      allowNull: true,
     },
     price: {
       type: DataTypes.FLOAT,
@@ -24,6 +24,4 @@ const Product = (sequelize, DataTypes) => {
   });
 };
 
-module.exports = {
-  Product,
-};
+module.exports = Product;
