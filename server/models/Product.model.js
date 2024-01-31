@@ -13,6 +13,7 @@ const Product = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: true,
+      unique: false,
     },
     price: {
       type: DataTypes.FLOAT,

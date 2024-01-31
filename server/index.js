@@ -5,6 +5,7 @@ const cors = require("cors");
 
 //  ROUTES IMPORT
 const products = require("./routes/product.router");
+const search = require("./routes/search.router");
 
 // PORT
 const port = process.env.PORT || 5000;
@@ -19,8 +20,14 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1", products);
+app.use("/api/v1/", search);
+
+// ERROR HANDLER
+app.use(require("./middlewares/errorHandler"));
 
 // LISTEN
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
+
+module.exports = app;

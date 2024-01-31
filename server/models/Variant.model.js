@@ -8,7 +8,7 @@ const Variant = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: false,
     },
     sku: {
       type: DataTypes.STRING,
