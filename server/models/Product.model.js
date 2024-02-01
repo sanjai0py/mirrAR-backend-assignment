@@ -22,6 +22,12 @@ const Product = (sequelize, DataTypes) => {
         isDecimal: true,
       },
     },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: false,
+      defaultValue: "https://via.placeholder.com/150",
+    },
   });
 };
 

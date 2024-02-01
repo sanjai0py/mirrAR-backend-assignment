@@ -26,6 +26,7 @@ const newProduct = asyncHandler((req, res) => {
         product_name: "Basketball",
         description: "A basketball",
         price: 200.00,
+        image:link
         variantsData:[
             {
                 name: 'Variant 1',
@@ -43,8 +44,8 @@ const newProduct = asyncHandler((req, res) => {
       }
     */
 
-  const { product_name, price, description, variantsData } = req.body;
-  const productData = { name: product_name, price, description };
+  const { product_name, price, description, image, variantsData } = req.body;
+  const productData = { name: product_name, price, description, image };
 
   createProductWithVariants(productData, variantsData)
     .then((product) => {
@@ -99,12 +100,13 @@ const updateProductById = asyncHandler((req, res) => {
         product_name: "Basketball",
         description: "A basketball",
         price: 200.00,
+        image:link
       }
     */
 
   const { id } = req.params;
-  const { product_name, price, description } = req.body;
-  const productData = { name: product_name, price, description };
+  const { product_name, price, description, image } = req.body;
+  const productData = { name: product_name, price, description, image };
 
   Product.findByPk(id)
     .then((product) => {

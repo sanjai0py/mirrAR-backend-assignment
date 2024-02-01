@@ -13,8 +13,8 @@ const searchProducts = asyncHandler(async (req, res) => {
     const products = await Product.findAll({
       where: {
         name: { [Op.iLike]: `%${productName}%` },
-        description: { [Op.iLike]: `%${description}%` },
       },
+      include: ["variants"],
     });
 
     res.status(200).json({

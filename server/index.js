@@ -7,6 +7,8 @@ const cors = require("cors");
 const products = require("./routes/product.router");
 const search = require("./routes/search.router");
 
+const { specs, swaggerUi } = require('./config/swagger.config');
+
 // PORT
 const port = process.env.PORT || 5000;
 
@@ -18,6 +20,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 app.use("/api/v1", products);
 app.use("/api/v1/", search);
