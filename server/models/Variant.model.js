@@ -29,6 +29,10 @@ const Variant = (sequelize, DataTypes) => {
         isInt: true,
       },
     },
+    search_vector: {
+      type: DataTypes.TSVECTOR,
+      allowNull: true,
+    },
   });
 };
 

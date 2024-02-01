@@ -28,6 +28,10 @@ const Product = (sequelize, DataTypes) => {
       unique: false,
       defaultValue: "https://via.placeholder.com/150",
     },
+    search_vector: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
   });
 };
 
