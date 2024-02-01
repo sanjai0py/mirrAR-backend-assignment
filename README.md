@@ -9,6 +9,7 @@ A simple e-commerce system built using PE~~R~~N stack
 - [Technologies used](#technologies)
 - [Features](#features)
 - [Database Models and ERD](#database-models-and-erd)
+- [Search Funtionality](#search-functionality)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
@@ -63,6 +64,10 @@ In this ERD:
 
 - The `Product` entity has a one-to-many relationship with the `Variant` entity. Each product can have multiple variants, while each variant belongs to only one product.
 - The `productId` in the `Variant` entity is a foreign key referencing the `id` of the associated `Product`.
+
+## Improved Search Feature
+
+The search functionality in this project has been improved using PostgreSQL's full-text search features to provide more efficient and accurate search results. A separate branch named `improved-search` was created to test and refine the new feature. 
 
 ## Installation
 
