@@ -9,17 +9,35 @@ const { Product } = require("../sequelize");
 const searchProducts = asyncHandler(async (req, res) => {
   const { productName, description, variantName } = req.query;
 
-  if (productName) {
+  try {
+    let whereClause = {};
+
+    if (productName) {
+      whereClause.name = { [Op.iLike]: `%${productName}%` };
+    }
+
+    if (description) {
+      whereClause.description = { [Op.iLike]: `%${description}%` };
+    }
+
+    if (variantName) {
+      whereClause["$variants.name$"] = { [Op.iLike]: `%${variantName}%` };
+    }
+
     const products = await Product.findAll({
-      where: {
-        name: { [Op.iLike]: `%${productName}%` },
-      },
+      where: whereClause,
       include: ["variants"],
     });
 
     res.status(200).json({
       message: "Products retrieved successfully",
       products,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message,
     });
   }
 });

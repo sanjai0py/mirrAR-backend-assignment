@@ -61,8 +61,8 @@ const { searchProducts } = require("../controllers/search.controller");
  *                         sku: VARY
  *                         additional_cost: 6.00
  *                         stock_count: 25
- *         '400':
- *           description: Products retrieval failed.
+ *         '500':
+ *           description: Internal Server Error.
  *           content:
  *             application/json:
  *               example:
