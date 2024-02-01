@@ -32,7 +32,7 @@ A simple e-commerce system built using PE~~R~~N stack
 
 ```bash
 # Clone the repository
-git clone https://github.com/sanjai0py/mirrar-backend-assignment/
+git clone https://github.com/sanjai0py/mirrAR-backend-assignment.git
 
 # Navigate to the project directory
 cd mirrar-backend-assignment
