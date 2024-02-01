@@ -8,11 +8,13 @@ A simple e-commerce system built using PE~~R~~N stack
 
 - [Technologies used](#technologies)
 - [Features](#features)
+- [Database Models and ERD](database-model)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Testing](#testing)
 - [Resources and Useful links](#resources)
+- [Deployment Links](#deployed-link)
 
 ## Technologies
 
@@ -28,6 +30,36 @@ A simple e-commerce system built using PE~~R~~N stack
 - [x] Product Updation
 - [x] Product Deletion
 - [x] Product Searching
+
+## Database Models and ERD:
+
+**Database Models:**
+
+Our application involves two main entities: `Product` and `Variant`.
+
+1. **Product Model:**
+   - `id` (Primary Key)
+   - `name` (String, required)
+   - `description` (Text)
+   - `price` (Decimal, required)
+   - `image` (String, URL)
+   - `createdAt` and `updatedAt` (Auto-generated timestamps)
+
+2. **Variant Model:**
+   - `id` (Primary Key)
+   - `name` (String, required)
+   - `sku` (String, required)
+   - `additional_cost` (Decimal, required)
+   - `stock_count` (Integer, required)
+   - `productId` (Foreign Key referencing Product)
+   - `createdAt` and `updatedAt` (Auto-generated timestamps)
+
+**Entity Relationship Diagram (ERD):**
+![Alt text](https://i.ibb.co/vmGVkVS/mirrar-public.png)
+
+In this ERD:
+- The `Product` entity has a one-to-many relationship with the `Variant` entity. Each product can have multiple variants, while each variant belongs to only one product.
+- The `productId` in the `Variant` entity is a foreign key referencing the `id` of the associated `Product`.
 
 ## Installation
 
@@ -54,8 +86,14 @@ cd server
 # Start the application
 npm start
 ```
-
 Visit [http://localhost:5000/](http://localhost:5000/) in your web browser. The server started successfully if you are greated with the message `Hello World!`
+
+## Testing
+
+```bash
+# Run tests
+npm test
+```
 
 ## API Endpoints
 
@@ -68,16 +106,10 @@ Visit [http://localhost:5000/](http://localhost:5000/) in your web browser. The 
 
 - **`GET api/v1/docs`**:  Get the swagger documentation.
 
-## Testing
-
-```bash
-# Run tests
-npm test
-```
 
 ## Resources
 
-> The best books are on the Internet. The best peers are on the Internet. The tools for learning are abundant. It's the desire to learn that's scarce. -Naval
+> The best books are on the Internet. The best peers are on the Internet. The tools for learning are abundant. It's the desire to learn that's scarce. -Naval Ravikant
 
 Thanks to the amazing internet, which provides a wealth of knowledge. Here are a few resources that helped me learn some advanced concepts in my field:
 
