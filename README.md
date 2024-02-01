@@ -8,11 +8,11 @@ A simple e-commerce system built using PE~~R~~N stack
 
 - [Technologies used](#technologies)
 - [Features](#features)
-- [Database Models and ERD](database-model)
+- [Database Models and ERD](#database-models-and-erd)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints)
 - [Testing](#testing)
+- [API Endpoints](#api-endpoints)
 - [Resources and Useful links](#resources)
 - [Deployment Links](#deployed-link)
 
@@ -38,6 +38,7 @@ A simple e-commerce system built using PE~~R~~N stack
 Our application involves two main entities: `Product` and `Variant`.
 
 1. **Product Model:**
+
    - `id` (Primary Key)
    - `name` (String, required)
    - `description` (Text)
@@ -55,9 +56,11 @@ Our application involves two main entities: `Product` and `Variant`.
    - `createdAt` and `updatedAt` (Auto-generated timestamps)
 
 **Entity Relationship Diagram (ERD):**
+
 ![Alt text](https://i.ibb.co/vmGVkVS/mirrar-public.png)
 
 In this ERD:
+
 - The `Product` entity has a one-to-many relationship with the `Variant` entity. Each product can have multiple variants, while each variant belongs to only one product.
 - The `productId` in the `Variant` entity is a foreign key referencing the `id` of the associated `Product`.
 
@@ -86,6 +89,7 @@ cd server
 # Start the application
 npm start
 ```
+
 Visit [http://localhost:5000/](http://localhost:5000/) in your web browser. The server started successfully if you are greated with the message `Hello World!`
 
 ## Testing
@@ -97,15 +101,13 @@ npm test
 
 ## API Endpoints
 
+- **`GET api/v1/docs`**: Get the swagger documentation.
 - **`GET api/v1/products`**: Get a list of all products.
 - **`POST api/v1/products`**: Create a new product.
 - **`GET api/v1/products/:id`**: Get details of a specific product.
 - **`PUT api/v1/products/:id`**: Update a product.
 - **`DELETE api/v1/products/:id`**: Delete a product.
 - **`GET api/v1/search`**: Search for a product.
-
-- **`GET api/v1/docs`**:  Get the swagger documentation.
-
 
 ## Resources
 

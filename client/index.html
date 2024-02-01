@@ -7,31 +7,73 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>mirrAR backend assignment</h1>
-    <h2>Client</h2>
-    <p>
-      This is the client for the backend assignment. It is a simple HTML page
-      that uses JavaScript to make requests to the server.
-    </p>
-    <p>
+    <span class="title">e-commerce website.</span>
+
+    <div class="container">
+      <div id="product-grid"></div>
+
+      <template id="product-template">
+        <div class="product" data-id="">
+          <div class="product-image-cont">
+            <img class="product-image" src="" alt="" />
+          </div>
+          <div class="product-details">
+            <span class="product-name"></span>
+            <!-- <span class="product-description"></span> -->
+            <span class="product-price"></span>
+            <!-- <div class="product-varients">
+              <ul>
+                <li>
+                  <span class="product-varient-name"></span>
+                  <span class="product-varient-price"></span>
+                </li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <footer>
       The client is hosted on GitHub Pages. You can find the source code for the
-      client
+      client and server
       <a href="https://github.com/sanjai0py/mirrar-backend-assignment-client"
         >here</a
       >.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut pariatur
-      voluptas rerum, porro illum consequuntur voluptatibus corporis, enim saepe
-      sunt sit eligendi soluta accusamus veniam error molestias asperiores sequi
-      reiciendis, dignissimos corrupti ex tempora molestiae! Dolore eaque soluta
-      quod obcaecati officia ad quibusdam adipisci illo iusto! Iure distinctio
-      repellat nostrum rem eum illo sed ab, amet numquam reiciendis a et
-      blanditiis optio error, quasi quibusdam quaerat suscipit reprehenderit
-      aspernatur, facere officiis perferendis eligendi at tenetur. Corporis
-      iusto, veritatis quae, molestiae iste quam reprehenderit quasi magnam
-      aliquam tempore id commodi suscipit cum sapiente inventore? Dignissimos
-      harum laudantium numquam suscipit in temporibus.
-    </p>
+    </footer>
+    <script>
+      const productTemplate = document.getElementById("product-template");
+
+      document.addEventListener("DOMContentLoaded", async () => {
+        const value = await fetch("http://localhost:5000/api/v1/products/")
+          .then((res) => res.json())
+          .then(({ products }) => products);
+
+        if ("content" in document.createElement("template")) {
+          value.forEach((product) => {
+            const template = productTemplate.content.cloneNode(true);
+            template.querySelector(".product").dataset.id = product.id;
+            template.querySelector(".product-name").innerText = product.name;
+            template.querySelector(
+              ".product-price"
+            ).innerText = `₹${product.price}`;
+            //   template.querySelector(".product-description").innerText =
+            //     product.description;
+            template.querySelector(".product-image").src = product.image;
+            template.querySelector(".product-image").alt = product.name;
+            document.getElementById("product-grid").appendChild(template);
+          });
+        }
+
+        const products = document.querySelectorAll(".product");
+
+        products.forEach((product) => {
+          product.addEventListener("click", (e) => {
+            const id = e.currentTarget.dataset.id;
+            window.location.href = `./product.html?id=${id}`;
+          });
+        });
+      });
+    </script>
   </body>
 </html>

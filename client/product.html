@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <span class="title">products page</span>
+    <div id="product-cont"></div>
+
+    <template id="product-template">
+      <div class="product">
+        <div class="product-image-cont">
+          <img class="product-image" src="" alt="" />
+        </div>
+        <div class="product-details">
+          <span class="product-name"></span>
+          <span class="product-description"></span>
+          <span class="product-price"></span>
+          <div class="product-varients">
+            <ul>
+              <li>
+                <span class="product-varient-name"></span>
+                <span class="product-varient-price"></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("id");
+      let vals;
+
+      async function createProducts() {
+        vals = await fetch(`http://localhost:5000/api/v1/products/${productId}`)
+          .then((response) => response.json())
+          .then(({ products }) => products);
+      }
+
+      createProducts();
+      console.log(vals)
+
+      if ("content" in document.createElement("template")) {
+        vals.forEach((product) => {
+          const template = productTemplate.content.cloneNode(true);
+          template.querySelector(".product").dataset.id = product.id;
+          template.querySelector(".product-name").innerText = product.name;
+          template.querySelector(
+            ".product-price"
+          ).innerText = `₹${product.price}`;
+          template.querySelector(".product-description").innerText =
+            product.description;
+          template.querySelector(".product-image").src = product.image;
+          template.querySelector(".product-image").alt = product.name;
+          document.getElementById("product-grid").appendChild(template);
+        });
+      }
+    </script>
+  </body>
+</html>
