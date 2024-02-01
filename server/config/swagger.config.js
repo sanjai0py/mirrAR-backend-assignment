@@ -2,6 +2,7 @@ const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
+const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
 
 const options = {
   definition: {
@@ -14,7 +15,7 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${PORT}/api/v1`,
+        url: `${BASE_URL}:${PORT}/api/v1`,
         description: "Development server",
       },
     ],
