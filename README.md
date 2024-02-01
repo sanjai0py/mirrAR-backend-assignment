@@ -32,7 +32,7 @@ A simple e-commerce system built using PE~~R~~N stack
 
 ```bash
 # Clone the repository
-git clone https://github.com/sanjai0py/mirrar-backend-assignment/
+git clone https://github.com/sanjai0py/mirrAR-backend-assignment.git
 
 # Navigate to the project directory
 cd mirrar-backend-assignment
@@ -51,7 +51,7 @@ cd server
 npm start
 ```
 
-Visit [http://localhost:5000](http://localhost:5000) in your web browser. The started successfully if you are greated with the message `Hello World!`
+Visit [http://localhost:5000](http://localhost:5000) in your web browser. The server started successfully if you are greated with the message `Hello World!`
 
 ## API Endpoints
 
