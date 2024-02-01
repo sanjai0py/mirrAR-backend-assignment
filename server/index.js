@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/api/v1/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-app.use("/api/v1", products);
+app.use("/api/v1/", products);
 app.use("/api/v1/", search);
 
 // ERROR HANDLER
