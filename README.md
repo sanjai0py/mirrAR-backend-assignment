@@ -51,7 +51,7 @@ cd server
 npm start
 ```
 
-Visit [http://localhost:5000](http://localhost:5000) in your web browser. The started successfully if you are greated with the message `Hello World!`
+Visit [http://localhost:5000](http://localhost:5000) in your web browser. The server started successfully if you are greated with the message `Hello World!`
 
 ## API Endpoints
 
