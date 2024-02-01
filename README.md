@@ -9,7 +9,7 @@ A simple e-commerce system built using PE~~R~~N stack
 - [Technologies used](#technologies)
 - [Features](#features)
 - [Database Models and ERD](#database-models-and-erd)
-- [Search Funtionality](#search-functionality)
+- [Improved Search Feature](#improved-search-feature)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Testing](#testing)
