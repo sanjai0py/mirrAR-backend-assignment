@@ -55,6 +55,7 @@ Our application involves two main entities: `Product` and `Variant`.
    - `createdAt` and `updatedAt` (Auto-generated timestamps)
 
 **Entity Relationship Diagram (ERD):**
+
 ![Alt text](https://i.ibb.co/vmGVkVS/mirrar-public.png)
 
 In this ERD:
