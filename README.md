@@ -85,3 +85,8 @@ Thanks to the amazing internet, which provides a wealth of knowledge. Here are a
 - [REST-API best design practices](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
 
 ## Deployed Link
+
+The API is deployed on [Render](https://render.com/).
+
+- [API](https://e-commerce-backend-vn3u.onrender.com)
+- [Documentation](https://e-commerce-backend-vn3u.onrender.com/api/v1/docs/)
