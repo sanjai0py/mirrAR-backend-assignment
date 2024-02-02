@@ -67,7 +67,7 @@ In this ERD:
 
 ## Improved Search Feature
 
-The search functionality in this project has been improved using PostgreSQL's full-text search features to provide more efficient and accurate search results. A separate branch named `improved-search` was created to test and refine the new feature. 
+The search functionality on my API was slow when I used Sequelize ORM's 'Op.ilike' operations, taking about 20-30 ms for a table of 200 rows. Upon digging through the documentation, I found out that Postgres has an in-built full-text search feature that is specifically made for this functionality, and is much faster. To improve the search feature, I created a new branch called 'improved-search' and implemented a basic version of the search using Postgres's full-text search feature, even though it was buggy because it was already time to submit the assignment. I plan to learn more about this feature of Postgres and implement it in the 'improved-search' branch to avoid breaking the 'main' branch.
 
 ## Installation
 
