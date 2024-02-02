@@ -125,7 +125,7 @@ Thanks to the amazing internet, which provides a wealth of knowledge. Here are a
 
 ## Deployed Link
 
-The API is deployed on [Render](https://render.com/).
+The API is deployed on [Render](https://render.com/). **The API might take some time to respond as it is hoisted on a free plan.**
 
 - [API](https://e-commerce-backend-vn3u.onrender.com)
 - [Documentation](https://e-commerce-backend-vn3u.onrender.com/api/v1/docs/)
